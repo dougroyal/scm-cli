@@ -1,0 +1,28 @@
+@import "default.css"; 
+
+.class {
+    border-top:5px solid #355f7c;
+}
+
+.class dt {
+    background-color:#98dbcc;
+}
+
+.function {
+    border-top:5px solid #355f7c;
+}
+
+.function dt {
+    background-color:#FFFF99;
+}
+
+.field-name, .field-body {
+    padding-bottom: 20px !important;
+}
+
+/*
+.function dd {
+    background-color:#FFFF99;
+}
+*/
+
