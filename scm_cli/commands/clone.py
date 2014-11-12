@@ -1,12 +1,11 @@
 import sys
 from os import linesep
-from scm_cli import printer
 from scm_cli.repo_finder import find_repos
 
 
 def clone(scm_clients, repo_pattern, clone_destination):
 
-    printer.notify_starting_search()
+    print("hold on, I'll see if I can find that for you ...")
 
     repos = find_repos(scm_clients, repo_pattern)
 
@@ -21,7 +20,7 @@ def clone(scm_clients, repo_pattern, clone_destination):
 
     # otherwise prompt user to find out which repo to checkout
     else:
-        printer.display_options(repos)
+        print("Ok, here's what I got:")
         repo_index = _get_users_choice(repos)
         repo = repos[repo_index]
 
@@ -36,7 +35,7 @@ def _get_users_choice(repos):
     while (choice <= 0 or choice > number_of_repos):
         try:
             choice = int(input('Enter repo number: '))
-        except Exception as e:
+        except:
             pass # Don't respond until the user enters a valid number
 
     return choice - 1
