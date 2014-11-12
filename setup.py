@@ -3,10 +3,10 @@ from setuptools import setup, find_packages
 from setuptools.command.install import install
 from shutil import copytree
 
-requirements = ['requests', 'colorama', 'bitbucket-api', 'PyGithub']
+requirements = ['requests', 'bitbucket-api', 'PyGithub']
 
 class CustomInstallCommand(install):
-    """Customized setuptools install command - sets up user preferences and custom plugin's directory."""
+    """Sets up user preferences and custom plugin's directory."""
 
     def run(self):
         user_home = os.path.expanduser("~")
@@ -23,11 +23,11 @@ class CustomInstallCommand(install):
 
 setup(
     name="scm-cli",
-    version="0.0.4",
+    version="0.1.0",
     author="Doug Royal",
     author_email="douglasroyal@gmail.com",
     description=("A command line interface to various source control services, such as github, bitbucket, etc."),
-    license="PSF",
+    license="BSD",
     keywords="source controll",
     url="http://houseofquark.com/scm-cli",
     packages=find_packages(),
@@ -43,6 +43,6 @@ setup(
         'Environment :: Console',
         'Intended Audience :: Developers',
         'Topic :: Software Development :: Version Control',
-        'License :: OSI Approved :: Python Software Foundation License',
+        'License :: OSI Approved :: BSD License',
     ],
 )
