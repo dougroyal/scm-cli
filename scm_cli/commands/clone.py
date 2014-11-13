@@ -20,7 +20,7 @@ def clone(scm_clients, repo_pattern, clone_destination):
 
     # otherwise prompt user to find out which repo to checkout
     else:
-        print("Ok, here's what I got:")
+        _print_repos(repos)
         repo_index = _get_users_choice(repos)
         repo = repos[repo_index]
 
@@ -28,14 +28,22 @@ def clone(scm_clients, repo_pattern, clone_destination):
     the_repos_client.clone(repo=repo, dest=clone_destination)
 
 
+def _print_repos(repos):
+    print("\nOk, here's what I got:")
+    for index, repo in enumerate(repos):
+        msg = '    {index}. {name}  ({host})'
+        print(msg.format(index=index+1, name=repo['name'], host=repo['host']))
+
 def _get_users_choice(repos):
     choice = 0
     number_of_repos = len(repos)
 
     while (choice <= 0 or choice > number_of_repos):
+        choice = input('\nEnter repo number: ')
         try:
-            choice = int(input('Enter repo number: '))
+            choice = int(choice)
         except:
-            pass # Don't respond until the user enters a valid number
+            # Don't respond until the user enters a valid number
+            choice = 0
 
     return choice - 1
