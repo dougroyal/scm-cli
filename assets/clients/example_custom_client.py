@@ -25,17 +25,18 @@ def clone(): -> None
 
 from scm_cli.shell import run
 
-HOSTNAME = 'example.com'
+HOSTNAME = 'example.com' # The name of your internal server that has your repos
 STORAGE_DIR = '/storage/repos/'
 
 MERCURIAL = 'hg'
 GIT = 'git'
 
-def get_repos():
-    repos = []
-    git_repos = run('ssh '+HOSTNAME+' "ls '+STORAGE_DIR+GIT+'"')
-    hg_repos = run('ssh '+HOSTNAME+' "ls '+STORAGE_DIR+MERCURIAL+'"')
 
+def get_repos():
+    git_repos = run(['ssh', HOSTNAME, 'ls '+STORAGE_DIR+GIT])
+    hg_repos = run(['ssh', HOSTNAME, 'ls '+STORAGE_DIR+MERCURIAL])
+
+    repos = []
     repos.extend(_format_repos(git_repos, GIT))
     repos.extend(_format_repos(hg_repos, MERCURIAL))
 
@@ -44,10 +45,7 @@ def get_repos():
 
 def clone(repo, dest):
     if dest == None: dest = ''
-
-    command = repo['repo_type'] + 'clone ' + repo['clone_url'] + ' ' + dest
-
-    run(command)
+    run([repo['repo_type'], 'clone', repo['clone_url'], dest])
 
 
 def _format_repos(repos, repo_type):
