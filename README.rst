@@ -28,3 +28,7 @@ Add usernames and passwords
 then:
 
 $ scm clone <some pattern>
+
+Development Plans
+-----------------
+`Trello Board <https://trello.com/b/q956VDok/scm-cli>`_
