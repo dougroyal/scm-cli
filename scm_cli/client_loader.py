@@ -19,10 +19,13 @@ sys.path.append(CUSTOM_CLIENTS_DIR)
 def load_client_modules():
     clients = {}
 
-    import pprint; pprint.pprint(sys.path)
     for host in _get_host_clients():
-        module = "scm_cli.clients.%s_client" % host
-        clients[host] = __import__(module, globals(), locals(), ['object'], 0)
+        try:
+            module = "scm_cli.clients.%s_client" % host
+            clients[host] = __import__(module, globals(), locals(), ['object'], 0)
+        except:
+            module = "%s_client" % host
+            clients[host] = __import__(module, globals(), locals(), ['object'], 0)
 
     return clients
 
