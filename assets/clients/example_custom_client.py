@@ -26,7 +26,7 @@ import sys
 
 from scm_cli.shell import run
 
-HOSTNAME = 'bender.lan'
+HOSTNAME = 'example.com'
 STORAGE_DIR = '/storage/repos'
 
 MERCURIAL = 'hg'
