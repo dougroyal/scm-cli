@@ -1,6 +1,8 @@
 import subprocess
 
 def run(command):
+    command = command if isinstance(command, list) else command.split()
+
     p = subprocess.Popen(command,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE)
@@ -8,7 +10,6 @@ def run(command):
     output, error = p.communicate()
 
     if error:
-        print(error)
-        raise(Excepiton, error)
+        raise Exception(str(error))
 
     return output
