@@ -34,8 +34,8 @@ GIT = 'git'
 
 
 def get_repos():
-    git_repos = run(['ssh', HOSTNAME, 'ls '+STORAGE_DIR+'/'+GIT])
-    hg_repos = run(['ssh', HOSTNAME, 'ls '+STORAGE_DIR+'/'+MERCURIAL])
+    git_repos = run(['ssh', HOSTNAME, 'ls '+STORAGE_DIR+'/'+GIT], capture=True)
+    hg_repos = run(['ssh', HOSTNAME, 'ls '+STORAGE_DIR+'/'+MERCURIAL], capture=True)
 
     repos = []
     repos.extend(_format_repos(git_repos, GIT))
