@@ -9,6 +9,7 @@ gh = Github(USERNAME, PASSWORD)
 
 
 def get_repos():
+    print('searching github ...')
     repos = gh.get_user().get_repos()
 
     return _format_repos(repos)

@@ -9,6 +9,7 @@ bb = Bitbucket(USERNAME, PASSWORD)
 
 
 def get_repos():
+    print('searching bitbucket ...')
     success, repos = bb.repository.all()
 
     return _format_repos(repos)

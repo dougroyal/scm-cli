@@ -3,15 +3,6 @@ import json
 from uuid import uuid4
 import re
 
-from colorama import Fore, Back, Style
-from colorama import init
-init(autoreset=True)
-# Colorama options
-# Fore: BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE, RESET.
-# Back: BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE, RESET.
-# Style: DIM, NORMAL, BRIGHT, RESET_ALL
-
-
 from scm_cli.config import config
 
 api_path = '/_admin/api'
@@ -19,6 +10,7 @@ protocol_pattern = re.compile('(https?://)(.*)')
 
 
 def get_repos():
+    print('searching rhodecode ...')
     try:
         url = '{host}{path}'.format(
             host=config['rhodecode']['host'],
@@ -33,7 +25,7 @@ def get_repos():
 
         response = requests.post(url, json.dumps(payload)).json()
     except:
-        print(Back.BLACK + Fore.YELLOW + 'WARNING: unable to connect to rhodecode server')
+        print('WARNING: unable to connect to rhodecode server')
         return None
 
     return _normalize_fields(response['result'])

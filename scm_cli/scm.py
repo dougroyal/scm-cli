@@ -2,7 +2,7 @@
 
 A utility for checking out repositories from various source control systems.
 
-Arguments:
+Required:
     REPO The name, or partial name, of the repository you want to search for and checkout.
 """
 import sys

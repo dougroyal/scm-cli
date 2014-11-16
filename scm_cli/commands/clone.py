@@ -25,7 +25,9 @@ def clone(scm_clients, repo_pattern, clone_destination=None):
         repo = repos[repo_index]
 
     the_repos_client = scm_clients[repo['host']]
+    print("cloning", repo['name'], '...')
     the_repos_client.clone(repo=repo, dest=clone_destination)
+    print("clone complete. happy hacking.")
 
 
 def _print_repos(repos):
