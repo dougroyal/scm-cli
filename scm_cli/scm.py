@@ -1,4 +1,6 @@
-"""Usage: scm clone (REPO)
+"""
+Usage:
+    scm clone (REPO)
 
 A utility for checking out repositories from various source control systems.
 
