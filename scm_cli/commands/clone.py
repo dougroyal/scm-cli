@@ -3,7 +3,7 @@ from os import linesep
 from scm_cli.repo_finder import find_repos
 
 
-def clone(scm_clients, repo_pattern, clone_destination):
+def clone(scm_clients, repo_pattern, clone_destination=None):
 
     print("hold on, I'll see if I can find that for you ...")
 

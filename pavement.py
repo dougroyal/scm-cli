@@ -6,7 +6,7 @@ import os
 
 VERSION = '0.1.0'
 
-requirements = ['requests', 'bitbucket-api', 'PyGithub']
+requirements = ['docopt', 'requests', 'bitbucket-api', 'PyGithub']
 
 setup(
     name="scm-cli",
