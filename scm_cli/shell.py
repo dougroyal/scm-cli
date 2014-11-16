@@ -1,11 +1,14 @@
 import subprocess
 
-def run(command):
+def run(command, capture=False):
     command = command if isinstance(command, list) else command.split()
 
-    p = subprocess.Popen(command,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE)
+    kwargs = {}
+    if capture:
+        kwargs['stderr'] = subprocess.STDOUT
+        kwargs['stdout'] = subprocess.PIPE
+
+    p = subprocess.Popen(command, **kwargs)
 
     output, error = p.communicate()
 
