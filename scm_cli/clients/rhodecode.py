@@ -1,3 +1,7 @@
+'''
+This isn't actually working right now. My rhodecode install crapped out for some
+crazy reason, and I haven't bothered to get it setup again.
+'''
 import requests
 import json
 from uuid import uuid4

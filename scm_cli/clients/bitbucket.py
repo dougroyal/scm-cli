@@ -1,17 +1,13 @@
 from bitbucket.bitbucket import Bitbucket
-import sys
 
 from scm_cli.scm_config import bitbucket_creds
 from scm_cli.shell import run
 
-USERNAME, PASSWORD = bitbucket_creds()
-
-bb = Bitbucket(USERNAME, PASSWORD)
-
 
 def get_repos():
-    if not USERNAME or not PASSWORD:
-        sys.exit('You need to add your credentials to ~/.scm/scm.cfg bitbucket section.')
+    USERNAME, PASSWORD = bitbucket_creds()
+    bb = Bitbucket(USERNAME, PASSWORD)
+
     print('searching bitbucket ...')
     success, repos = bb.repository.all()
 

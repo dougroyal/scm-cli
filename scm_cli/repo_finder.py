@@ -1,4 +1,5 @@
 from operator import itemgetter
+import sys
 
 
 def find_repos(scm_clients, repo_pattern):
@@ -19,6 +20,9 @@ def find_repos(scm_clients, repo_pattern):
 
             {name: some-other-repo-name, host: bitbucket, scm_type: hg} ]
     """
+    if not scm_clients:
+        sys.exit('\nNo hosts are configured. Check ~/.scm/scm.cfg\n')
+
     scm_hosts = {}
 
     for name in scm_clients:
