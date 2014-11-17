@@ -7,6 +7,8 @@ import os
 VERSION = '0.1.0'
 
 requirements = ['docopt', 'requests', 'bitbucket-api', 'PyGithub']
+dev_requirements = ['wheel', 'watchdog']
+test_requirements = []
 
 setup(
     name="scm-cli",
@@ -20,10 +22,11 @@ setup(
     packages=find_packages(),
     long_description=open('README.rst').read(),
     install_requires=requirements,
+    setup_requires=dev_requirements,
+    tests_require=test_requirements,
     entry_points={
         'console_scripts': ['scm = scm_cli.scm:main']
     },
-    setup_requires=['wheel'],
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Environment :: Console',
@@ -32,6 +35,13 @@ setup(
         'License :: OSI Approved :: BSD License',
     ],
 )
+
+
+@task
+@needs('build_sphinx')
+def watch_docs():
+    sh('watchmedo shell-command doc/source --recursive --command="paver build_sphinx"')
+
 
 @task
 def bump_version():
