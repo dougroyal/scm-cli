@@ -29,6 +29,10 @@ then:
 
 $ scm clone <some pattern>
 
+Documentation
+-------------
+`Online Documentation <http://code.grumbleofnerds.com/scm_cli>`_
+
 Development Plans
 -----------------
 `Trello Board <https://trello.com/b/q956VDok/scm-cli>`_
