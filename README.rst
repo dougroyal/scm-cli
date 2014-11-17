@@ -19,19 +19,9 @@ github, bitbucket
 
 custom git or mercurial hosts are supported via a simple plugin system
 
-Usage
------
-Afte you install, edit ~/.scm/scm.cfg
-
-Add usernames and passwords
-
-then:
-
-$ scm clone <some pattern>
-
 Documentation
 -------------
-`Online Documentation <http://code.grumbleofnerds.com/scm_cli>`_
+`Installation, Usage, and Customization <http://code.grumbleofnerds.com/scm_cli>`_
 
 Development Plans
 -----------------
