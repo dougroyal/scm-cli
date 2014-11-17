@@ -4,9 +4,17 @@ Install and Setup
 Install
 -------
 
+For now, clone the `source code <https://github.com/dougroyal/scm-cli>`_, and run
+
 .. code:: bash
 
-    $ sudo pip install scm_cli
+    # python setup.py install
+
+In a few days, I'll publish this to pypi, which will allow you to run.
+
+.. code:: bash
+
+    # pip install scm_cli
 
 Setup
 -----
