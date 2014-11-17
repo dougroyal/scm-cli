@@ -1,3 +1,5 @@
+import sys
+
 from github import Github
 
 from scm_cli.scm_config import github_creds
@@ -9,6 +11,8 @@ gh = Github(USERNAME, PASSWORD)
 
 
 def get_repos():
+    if not USERNAME or not PASSWORD:
+        sys.exit('You need to add your credentials to ~/.scm/scm.cfg github section.')
     print('searching github ...')
     repos = gh.get_user().get_repos()
 
