@@ -39,7 +39,7 @@ def init_if_first_run():
     """
     scm_cfg_file = os.path.expanduser(os.path.join('~', '.scm', 'scm.cfg'))
 
-    if scm_cfg_file:
+    if not os.path.isfile(scm_cfg_file):
         message = """\
 
 Looks like this is the first time you've run scm.
