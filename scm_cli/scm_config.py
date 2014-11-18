@@ -20,6 +20,7 @@ def bitbucket_creds():
 
     return username, password
 
+
 def github_creds():
     username = config.get('github', 'username')
     password = config.get('github', 'password')

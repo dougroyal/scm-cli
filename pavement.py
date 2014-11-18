@@ -8,7 +8,7 @@ VERSION = '0.1.0'
 
 requirements = ['docopt', 'requests', 'bitbucket-api', 'PyGithub']
 dev_requirements = ['wheel', 'watchdog']
-test_requirements = []
+test_requirements = ['pytest']
 
 setup(
     name="scm-cli",
@@ -19,7 +19,7 @@ setup(
     license="BSD",
     keywords="source controll",
     url="http://code.grumbleofnerds.com/scm-cli",
-    packages=find_packages(),
+    packages=find_packages(exclude=['tests']),
     long_description=open('README.rst').read(),
     install_requires=requirements,
     setup_requires=dev_requirements,
