@@ -1,4 +1,4 @@
-smc-cli
+scm-cli
 =======
 
 If you have lots of projects stored in lots of places, you probably waste time trying to hunt down your source code.
