@@ -18,10 +18,9 @@ from scm_cli.client_loader import load_client_modules
 
 def main():
     try:
-
         args = docopt.docopt(__doc__)
 
-        init_if_first_run()
+        _init_if_first_run()
 
         scm_clients = load_client_modules()
 
@@ -29,10 +28,10 @@ def main():
             clone(scm_clients, repo_pattern=args['REPO'])
 
     except KeyboardInterrupt:
-        sys.exit('')
+        sys.exit()
 
 
-def init_if_first_run():
+def _init_if_first_run():
     """
     Check if rc files exist.
     Initialize rc dirs and files if necessary
