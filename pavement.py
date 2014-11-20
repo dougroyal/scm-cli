@@ -4,7 +4,7 @@ from paver.easy import task, needs, sh, path
 import re
 import os
 
-VERSION = '0.1.0'
+VERSION = '0.1.1'
 
 requirements = ['docopt', 'requests', 'bitbucket-api', 'PyGithub']
 dev_requirements = ['wheel', 'watchdog']

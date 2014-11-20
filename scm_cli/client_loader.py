@@ -21,7 +21,7 @@ def load_client_modules():
 
     for host in _get_host_clients():
         try:
-            module = "scm_cli.clients.%s" % host
+            module = "scm_cli.clients.%s_client" % host
             clients[host] = __import__(module, globals(), locals(), ['object'], 0)
         except:
             clients[host] = __import__(host, globals(), locals(), ['object'], 0)
