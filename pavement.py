@@ -3,6 +3,7 @@ from paver.setuputils import setup
 from paver.easy import task, needs, sh, path
 import re
 import os
+import sys
 
 VERSION = '0.1.1'
 
