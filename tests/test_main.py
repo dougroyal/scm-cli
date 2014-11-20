@@ -1,5 +1,13 @@
+import sys
 import pytest
-from unittest.mock import MagicMock
+
+# Python 3
+if sys.version_info[0] >= 3:
+    from unittest.mock import MagicMock
+# Python 2
+else:
+    from mock import MagicMock
+
 
 from scm_cli import scm
 

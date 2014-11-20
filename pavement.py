@@ -8,7 +8,13 @@ VERSION = '0.1.1'
 
 requirements = ['docopt', 'requests', 'bitbucket-api', 'PyGithub']
 dev_requirements = ['wheel', 'watchdog']
-test_requirements = ['pytest']
+
+# Python 3
+if sys.version_info[0] >= 3:
+    test_requirements = ['pytest']
+# Python 2
+else:
+    test_requirements = ['pytest', 'mock']
 
 setup(
     name="scm-cli",
