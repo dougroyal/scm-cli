@@ -5,7 +5,7 @@ import re
 import os
 import sys
 
-VERSION = '0.1.1'
+from version import VERSION
 
 requirements = ['docopt', 'requests', 'bitbucket-api', 'PyGithub']
 dev_requirements = ['wheel', 'watchdog']
@@ -19,7 +19,7 @@ else:
 
 setup(
     name="scm-cli",
-    version="0.1.0",
+    version=VERSION,
     author="Doug Royal",
     author_email="douglasroyal@gmail.com",
     description=("A command line interface to various source control services, such as github, bitbucket, etc."),
@@ -55,7 +55,7 @@ def bump_version():
     version_line = "VERSION = '%s'" % _build_new_version(VERSION)
     version_pattern = "VERSION = '\d\.\d\.\d'"
 
-    pavement_file = os.path.realpath(__file__)
+    pavement_file = os.path.realpath('version.py')
 
     new_pavement_lines = []
     with open(path(pavement_file), 'r') as f:
@@ -77,4 +77,5 @@ def clean():
 def _build_new_version(old_version):
     new_version = old_version.split('.')
     new_version[1] = str(int(new_version[1])+1)
+    new_version[2] = '0'
     return '.'.join(new_version)
