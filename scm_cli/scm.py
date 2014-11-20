@@ -1,11 +1,14 @@
 """
 Usage:
-    scm clone (REPO)
+    scm clone (REPO) [destination]
 
 A utility for checking out repositories from various source control systems.
 
 Required:
-    REPO The name, or partial name, of the repository you want to search for and checkout.
+    REPO -- The name, or partial name, of the repository you want to search for and checkout.
+
+Optional:
+    destination -- The name of the directory you want to clone the project into.
 """
 import os
 from shutil import copytree
@@ -25,7 +28,10 @@ def main():
         scm_clients = load_client_modules()
 
         if args['clone']:
-            clone(scm_clients, repo_pattern=args['REPO'])
+
+            clone_destination = args['destination'] if args['destination'] else ''
+
+            clone(scm_clients, repo_pattern=args['REPO'], clone_destination=clone_destination)
 
     except KeyboardInterrupt:
         sys.exit()
