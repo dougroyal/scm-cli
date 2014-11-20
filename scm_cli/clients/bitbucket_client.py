@@ -3,11 +3,10 @@ from bitbucket.bitbucket import Bitbucket
 from scm_cli.scm_config import bitbucket_creds
 from scm_cli.shell import run
 
+USERNAME, PASSWORD = bitbucket_creds()
+bb = Bitbucket(USERNAME, PASSWORD)
 
 def get_repos():
-    USERNAME, PASSWORD = bitbucket_creds()
-    bb = Bitbucket(USERNAME, PASSWORD)
-
     print('searching bitbucket ...')
     success, repos = bb.repository.all()
 

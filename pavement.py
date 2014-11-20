@@ -62,6 +62,11 @@ def bump_version():
         f.writelines(new_pavement_lines)
 
 
+@task
+def clean():
+    sh("find . -type f -name '*.pyc' -delete")
+
+
 def _build_new_version(old_version):
     new_version = old_version.split('.')
     new_version[1] = str(int(new_version[1])+1)

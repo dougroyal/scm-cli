@@ -1,5 +1,6 @@
 import os
 import sys
+from importlib import import_module
 
 # Python 3
 if sys.version_info[0] >= 3:
@@ -21,10 +22,10 @@ def load_client_modules():
 
     for host in _get_host_clients():
         try:
-            module = "scm_cli.clients.%s_client" % host
-            clients[host] = __import__(module, globals(), locals(), ['object'], 0)
+            module = '.%s_client' % host
+            clients[host] = import_module(module, 'scm_cli.clients')
         except:
-            clients[host] = __import__(host, globals(), locals(), ['object'], 0)
+            clients[host] = import_module(host)
 
     return clients
 

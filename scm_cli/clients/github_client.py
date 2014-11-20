@@ -3,11 +3,11 @@ from github import Github
 from scm_cli.scm_config import github_creds
 from scm_cli.shell import run
 
+USERNAME, PASSWORD = github_creds()
+gh = Github(USERNAME, PASSWORD)
+
 
 def get_repos():
-    USERNAME, PASSWORD = github_creds()
-    gh = Github(USERNAME, PASSWORD)
-
     print('searching github ...')
     repos = gh.get_user().get_repos()
 
