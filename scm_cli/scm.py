@@ -1,6 +1,6 @@
 """
 Usage:
-    scm clone (REPO) [destination]
+    scm clone (<REPO>) [<destination>]
 
 A utility for checking out repositories from various source control systems.
 
@@ -29,9 +29,9 @@ def main():
 
         if args['clone']:
 
-            clone_destination = args['destination'] if args['destination'] else ''
+            clone_destination = args['<destination>'] if args['<destination>'] else ''
 
-            clone(scm_clients, repo_pattern=args['REPO'], clone_destination=clone_destination)
+            clone(scm_clients, repo_pattern=args['<REPO>'], clone_destination=clone_destination)
 
     except KeyboardInterrupt:
         sys.exit()
