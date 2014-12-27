@@ -1,4 +1,5 @@
 recursive-include doc *
+include version.py
 include setup.py
 include pavement.py
 include paver-minilib.zip
