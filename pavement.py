@@ -35,7 +35,7 @@ setup(
         'console_scripts': ['scm = scm_cli.scm:main']
     },
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 4 - Beta',
         'Environment :: Console',
         'Intended Audience :: Developers',
         'Topic :: Software Development :: Version Control',
@@ -67,6 +67,17 @@ def bump_version():
 
     with open(path(pavement_file), 'w') as f:
         f.writelines(new_pavement_lines)
+
+
+@task
+def clean_docs():
+    sh('rm -rf doc/build')
+
+
+@task
+@needs(['clean_docs', 'generate_setup', 'minilib', 'build_sphinx', 'setuptools.command.sdist'])
+def sdist(options):
+    pass
 
 
 @task
